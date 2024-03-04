@@ -1,4 +1,4 @@
-#Métodos numéricos
+# Metodos-numericos
 
 En este repositorio se encuentran 
 
