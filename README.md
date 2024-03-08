@@ -6,3 +6,5 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 
 ## Tema 3 
 - [Definición de Sistema de ecuaciones lineales](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Sistema%20de%20ecuaciones%20lineales) 
+- [Eliminación Gaussiana](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Eliminaci%C3%B3n%20Gaussiana) 
+
