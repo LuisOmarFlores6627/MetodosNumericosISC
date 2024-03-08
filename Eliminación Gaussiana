@@ -4,3 +4,24 @@ para resolver sistemas de ecuaciones lineales. El objetivo de este método es tr
 lineales en otro equivalente pero más simple, hasta llegar a un sistema triangular que puede ser fácilmente resuelto 
 mediante sustitución hacia atrás.
 
+----Algoritmo-----
+Entrada: Una matriz A de coeficientes de tamaño n x n y un vector b de tamaño n (sistema de ecuaciones lineales Ax = b)
+Salida: La solución del sistema de ecuaciones lineales
+
+1. Para k desde 1 hasta n-1 hacer:
+   a. Para i desde k+1 hasta n hacer:
+      i. Calcular el factor multiplicativo m = A[i][k] / A[k][k]
+      ii. Para j desde k+1 hasta n hacer:
+          1. A[i][j] = A[i][j] - m * A[k][j]
+      iii. b[i] = b[i] - m * b[k]
+      
+2. Resolución hacia atrás:
+   a. Para i desde n hasta 1, decrementando:
+      i. Inicializar sum = 0
+      ii. Para j desde i+1 hasta n hacer:
+          1. sum = sum + A[i][j] * x[j]
+      iii. x[i] = (b[i] - sum) / A[i][i]
+
+3. Devolver el vector solución x
+--------------------------------------------------------------------------------------------------------------------------
+
