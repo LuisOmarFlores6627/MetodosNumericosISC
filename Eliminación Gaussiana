@@ -1,1 +1,6 @@
+---Eliminación Gaussiana:
+La Eliminación Gaussiana, también conocida como el método de eliminación de Gauss, es un algoritmo utilizado 
+para resolver sistemas de ecuaciones lineales. El objetivo de este método es transformar un sistema de ecuaciones
+lineales en otro equivalente pero más simple, hasta llegar a un sistema triangular que puede ser fácilmente resuelto 
+mediante sustitución hacia atrás.
 
