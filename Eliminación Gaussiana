@@ -25,3 +25,64 @@ Salida: La solución del sistema de ecuaciones lineales
 3. Devolver el vector solución x
 --------------------------------------------------------------------------------------------------------------------------
 
+---IMPLEMENTACIÓN EN JAVA-----
+import java.util.Scanner;
+public class GaussianElimination {
+    
+    public static double[] solve(double[][] A, double[] b) {
+        int n = A.length;
+        // Eliminación hacia adelante
+        for (int k = 0; k < n-1; k++) {
+            for (int i = k+1; i < n; i++) {
+                double factor = A[i][k] / A[k][k];
+                for (int j = k+1; j < n; j++) {
+                    A[i][j] -= factor * A[k][j];
+                }
+                b[i] -= factor * b[k];
+            }
+        }
+        // Sustitución hacia atrás
+        double[] x = new double[n];
+        for (int i = n-1; i >= 0; i--) {
+            double sum = 0.0;
+            for (int j = i+1; j < n; j++) {
+                sum += A[i][j] * x[j];
+            }
+            x[i] = (b[i] - sum) / A[i][i];
+        }
+        return x;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese el tamaño de la matriz cuadrada: ");
+        int n = scanner.nextInt();
+        
+        double[][] A = new double[n][n];
+        double[] b = new double[n];
+        
+        System.out.println("Ingrese los elementos de la matriz A:");
+        for (int i = 0; i < n; i++) {
+            System.out.println("Fila " + (i+1) + ":");
+            for (int j = 0; j < n; j++) {
+                System.out.print("A[" + i + "][" + j + "] = ");
+                A[i][j] = scanner.nextDouble();
+            }
+        }
+        
+        System.out.println("Ingrese los elementos del vector b:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("b[" + i + "] = ");
+            b[i] = scanner.nextDouble();
+        }
+        
+        double[] x = solve(A, b);
+        
+        System.out.println("Solución del sistema de ecuaciones:");
+        for (int i = 0; i < x.length; i++) {
+            System.out.println("x[" + i + "] = " + x[i]);
+        }
+        scanner.close();
+    }
+}
+------------------------------------------------------------------------------------
