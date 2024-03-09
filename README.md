@@ -10,4 +10,4 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
       - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_Eliminaci%C3%B3n%20Gaussiana) 
       - [Ejemplo 2](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%202%20_Eliminaci%C3%B3n%20Gaussiana)
       - [Ejemplo 3](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%203%20_Eliminaci%C3%B3n%20Gaussiana) 
-
+      - [Ejemplo 4](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%204%20_Eliminaci%C3%B3n%20Gaussiana) 
