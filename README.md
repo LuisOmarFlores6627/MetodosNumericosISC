@@ -8,4 +8,4 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 - [Definición de Sistema de ecuaciones lineales](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Sistema%20de%20ecuaciones%20lineales) 
 1. [Eliminación Gaussiana](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Eliminaci%C3%B3n%20Gaussiana) 
       - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_Eliminaci%C3%B3n%20Gaussiana) 
-
+      - [Ejemplo 2](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%202%20_Eliminaci%C3%B3n%20Gaussiana) 
