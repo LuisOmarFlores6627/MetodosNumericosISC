@@ -18,3 +18,4 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
       - [Ejemplo 3](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%203%20_Gauss%20Jordan) 
       - [Ejemplo 4](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%204%20_Gauss%20Jordan) 
       - [Ejemplo 5](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%205%20_Gauss%20Jordan) 
+3. [Método de Gauss-Seidel](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/M%C3%A9todo%20de%20Gauss-Seidel) 
