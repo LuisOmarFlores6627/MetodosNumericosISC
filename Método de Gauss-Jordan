@@ -1,3 +1,20 @@
-------Gauss-Jordan---------
+------Gauss-Jordan:
 El método de eliminación Gauss-Jordan consiste en representar el sistema de ecuaciones por medio de una matriz y obtener a partir de ella 
 lo que se define como la matriz escalonada equivalente, a través de la cual se determina el tipo de solución de la ecuación.
+
+-------Algoritmo----------
+Entrada: Una matriz aumentada A (m x n)
+Salida: La matriz A en su forma escalonada reducida por filas
+
+Para k = 1 hasta m hacer:
+    Para i = 1 hasta m hacer:
+        Si i ≠ k entonces:
+            Multiplica la fila k por -A[i,k]/A[k,k] y súmala a la fila i de A
+            
+    Divide la fila k por A[k,k]
+
+    Para j = 1 hasta n hacer:
+        Si j ≠ k entonces:
+            Multiplica la columna k por -A[k,j]/A[k,k] y súmala a la columna j de A
+-------------------------------------------------------------------------------------------------------
+
