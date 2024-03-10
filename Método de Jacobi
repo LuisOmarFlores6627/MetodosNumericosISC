@@ -1,1 +1,3 @@
-
+---Método de Jacobi:
+Los métodos iterativos de Jacobi y Gauss-Seidel son los procesos de aproximaciones sucesivas para resolver sistemas de ecuaciones lineales 
+compatibles determinados.Ambos requieren de la verificación de un criterio de convergencia comúnmente conocido como diagonal pesada.
