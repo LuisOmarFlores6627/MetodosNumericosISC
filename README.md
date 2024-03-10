@@ -26,3 +26,4 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
       - [Ejemplo 5](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%205%20_Gauss%20Seidel) 
 4. [Método de Jacobi](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/M%C3%A9todo%20de%20Jacobi) 
       - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_M%C3%A9todo%20de%20Jacobi) 
+      - [Ejemplo 2](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%202%20_M%C3%A9todo%20de%20Jacobi) 
