@@ -1,3 +1,55 @@
 ---Método de Jacobi:
 Los métodos iterativos de Jacobi y Gauss-Seidel son los procesos de aproximaciones sucesivas para resolver sistemas de ecuaciones lineales 
 compatibles determinados.Ambos requieren de la verificación de un criterio de convergencia comúnmente conocido como diagonal pesada.
+
+-------Algoritmo----------
+metodo_jacobi:
+  descripcion: "Algoritmo para encontrar soluciones aproximadas de un sistema de ecuaciones lineales"
+  entrada:
+    A: 
+      tipo: matriz
+      descripcion: "Matriz de coeficientes del sistema de ecuaciones"
+    b:
+      tipo: vector
+      descripcion: "Vector de términos constantes"
+    x0:
+      tipo: vector
+      descripcion: "Aproximación inicial de la solución"
+    tol:
+      tipo: float
+      descripcion: "Tolerancia para el criterio de convergencia"
+    max_iter:
+      tipo: int
+      descripcion: "Número máximo de iteraciones"
+  salida:
+    x:
+      tipo: vector
+      descripcion: "Solución aproximada del sistema de ecuaciones"
+    iteraciones:
+      tipo: int
+      descripcion: "Número de iteraciones realizadas"
+  algoritmo: |
+    función jacobi(A, b, x0, tol, max_iter):
+      n = tamaño de A[0]  # Número de ecuaciones/sistema de ecuaciones
+
+      x = copiar(x0)  # Inicializar el vector solución
+      x_nuevo = crear vector de longitud n
+      iteraciones = 0
+
+      mientras iteraciones < max_iter:
+        para i de 0 a n-1:
+          suma = 0
+          para j de 0 a n-1:
+            si j ≠ i:
+              suma += A[i][j] * x[j]
+          x_nuevo[i] = (b[i] - suma) / A[i][i]
+
+        si norma_infinita(x_nuevo - x) < tol:
+          devolver x_nuevo, iteraciones
+
+        x = copiar(x_nuevo)
+        iteraciones += 1
+
+      devolver x, iteraciones
+---------------------------------------------------------------------------------------
+
