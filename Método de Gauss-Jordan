@@ -1,1 +1,3 @@
-
+------Gauss-Jordan---------
+El método de eliminación Gauss-Jordan consiste en representar el sistema de ecuaciones por medio de una matriz y obtener a partir de ella 
+lo que se define como la matriz escalonada equivalente, a través de la cual se determina el tipo de solución de la ecuación.
