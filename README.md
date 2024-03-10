@@ -15,3 +15,4 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 2. [Método de Gauss-Jordan](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/M%C3%A9todo%20de%20Gauss-Jordan) 
       - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_Gauss%20Jordan) 
       - [Ejemplo 2](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%202%20_Gauss%20Jordan) 
+      - [Ejemplo 3](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%203%20_Gauss%20Jordan) 
