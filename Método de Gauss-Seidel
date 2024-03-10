@@ -2,3 +2,22 @@
 En el método de Gauss-Seidel se propone ir sustituyendo los nuevos valores de la aproximación siguiente conforme 
 se vayan obteniendo sin esperar a tener un vector completo. De esta forma se acelera la convergencia.
 
+-----Algoritmo------
+Algoritmo_de_Gauss_Seidel:
+  Descripción: >
+    Método iterativo para resolver sistemas de ecuaciones lineales aproximadamente.
+    Se basa en la actualización sucesiva de las incógnitas en cada iteración.
+  Pasos:
+    - Paso_1: >
+        Inicializar un vector x^(0) con valores iniciales arbitrarios o calculados.
+    - Paso_2: >
+        Para cada i-ésima ecuación del sistema, calcular x_i^(k+1) usando la fórmula:
+        x_i^(k+1) = (1/a_{ii}) * (b_i - ∑_{j=1, j ≠ i}^{n} a_{ij} * x_j^(k))
+    - Paso_3: >
+        Repetir el Paso 2 hasta que la diferencia entre dos iteraciones sucesivas sea menor que una cierta tolerancia
+        predefinida o hasta alcanzar un número máximo de iteraciones.
+  Convergencia: >
+    La convergencia está garantizada si la matriz A es diagonalmente dominante o simétrica definida positiva.
+    La velocidad de convergencia puede variar dependiendo de la naturaleza del sistema.
+-------------------------------------------------------------------------------------------------------------
+
