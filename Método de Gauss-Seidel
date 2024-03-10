@@ -1,1 +1,4 @@
+---Método de Gauss-Seidel:
+En el método de Gauss-Seidel se propone ir sustituyendo los nuevos valores de la aproximación siguiente conforme 
+se vayan obteniendo sin esperar a tener un vector completo. De esta forma se acelera la convergencia.
 
