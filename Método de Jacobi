@@ -53,3 +53,73 @@ metodo_jacobi:
       devolver x, iteraciones
 ---------------------------------------------------------------------------------------
 
+---IMPLEMENTACIÓN EN JAVA-----
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Pedir dimensiones de la matriz
+        System.out.println("Ingrese el tamaño de la matriz (n x n):");
+        int n = scanner.nextInt();
+
+        // Pedir matriz de coeficientes
+        System.out.println("Ingrese la matriz de coeficientes A (una fila a la vez):");
+        double[][] A = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = scanner.nextDouble();
+            }
+        }
+
+        // Pedir vector de términos constantes
+        System.out.println("Ingrese el vector de términos constantes b:");
+        double[] b = new double[n];
+        for (int i = 0; i < n; i++) {
+            b[i] = scanner.nextDouble();
+        }
+
+        // Calcular solución utilizando el método de Jacobi
+        double[] solucion = jacobi(A, b);
+
+        // Mostrar resultado
+        System.out.println("La solución aproximada del sistema de ecuaciones es:");
+        for (int i = 0; i < n; i++) {
+            System.out.println("x[" + i + "] = " + solucion[i]);
+        }
+    }
+
+    public static double[] jacobi(double[][] A, double[] b) {
+        int n = A.length;
+        double[] x0 = new double[n];
+        double[] xNuevo = new double[n];
+
+        // Inicializar x0 con ceros
+        for (int i = 0; i < n; i++) {
+            x0[i] = 0.0;
+        }
+
+        // Realizar un número fijo de iteraciones (en este caso, 50)
+        for (int k = 0; k < 50; k++) {
+            // Calcular nuevo valor de x
+            for (int i = 0; i < n; i++) {
+                double suma = 0.0;
+                for (int j = 0; j < n; j++) {
+                    if (j != i) {
+                        suma += A[i][j] * x0[j];
+                    }
+                }
+                xNuevo[i] = (b[i] - suma) / A[i][i];
+            }
+
+            // Actualizar x0
+            for (int i = 0; i < n; i++) {
+                x0[i] = xNuevo[i];
+            }
+        }
+
+        return x0;
+    }
+}
+------------------------------------------------------------------------------------------
