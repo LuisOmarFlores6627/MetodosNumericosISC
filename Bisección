@@ -4,3 +4,31 @@ Este método es simple pero efectivo y se basa en el teorema del valor intermedi
 a una raíz debido a la propiedad de que en cada iteración se reduce a la mitad la longitud del intervalo que contiene la raíz. Sin 
 embargo, puede ser relativamente lento en comparación con otros métodos de búsqueda de raíces, especialmente para funciones con 
 comportamientos complicados. 
+
+----Algoritmo-----
+Método_de_Bisección:
+  Descripción: |
+    El Método de Bisección es un algoritmo para encontrar la raíz de una función continua en un intervalo dado. 
+    Se basa en el Teorema del Valor Intermedio, dividiendo repetidamente el intervalo a la mitad y seleccionando 
+    el subintervalo que sigue cumpliendo con el teorema.
+  
+  Parámetros:
+    - Función: "La función f(x) para la cual se quiere encontrar la raíz."
+    - Intervalo: "El intervalo [a, b] donde se buscará la raíz, donde f(a) y f(b) tienen signos opuestos."
+    - Tolerancia: "La precisión deseada para la raíz."
+    - Iteraciones_máximas: "El número máximo de iteraciones permitidas para evitar bucles infinitos."
+
+  Paso_a_Paso:
+    - Inicializar a = extremo inferior del intervalo, b = extremo superior del intervalo.
+    - Para cada iteración:
+        - Calcular el punto medio c = (a + b) / 2.
+        - Evaluar f(c).
+        - Si f(c) es cercano a 0 (dentro de la tolerancia), c es la raíz y se termina el algoritmo.
+        - Si f(c) y f(a) tienen signos opuestos, establecer b = c.
+        - Si f(c) y f(b) tienen signos opuestos, establecer a = c.
+        - Repetir hasta que se cumpla la condición de convergencia o se alcance el número máximo de iteraciones.
+
+  Resultado:
+    - Raíz: "El valor de c cuando se alcanza la precisión deseada."
+    - Iteraciones: "El número de iteraciones realizadas hasta encontrar la raíz."
+-----------------------------------------------------------------------------------------------------------------------------------
