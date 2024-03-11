@@ -9,6 +9,7 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 1. [Método de bisección](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Bisecci%C3%B3n)  
       - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_M%C3%A9todo%20de%20bisecci%C3%B3n) 
       - [Ejemplo 2](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%202%20_M%C3%A9todo%20de%20bisecci%C3%B3n) 
+      - [Ejemplo 3](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%203%20_M%C3%A9todo%20de%20bisecci%C3%B3n) 
 
 ## Tema 3 
 - [Definición de Sistema de ecuaciones lineales](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Sistema%20de%20ecuaciones%20lineales) 
