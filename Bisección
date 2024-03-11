@@ -1,1 +1,6 @@
-
+---Método de bisección:
+El método de bisección es un algoritmo utilizado para encontrar las raíces de una función continua en un intervalo dado. 
+Este método es simple pero efectivo y se basa en el teorema del valor intermedio.El método de bisección garantiza la convergencia
+a una raíz debido a la propiedad de que en cada iteración se reduce a la mitad la longitud del intervalo que contiene la raíz. Sin 
+embargo, puede ser relativamente lento en comparación con otros métodos de búsqueda de raíces, especialmente para funciones con 
+comportamientos complicados. 
