@@ -5,7 +5,7 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 - [Función](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Que%20es%20una%20funcion) 
 
 ## Tema 2
--[Métodos de solución de ecuaciones](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Soluci%C3%B3n%20de%20ecuaciones) 
+-[Definición Métodos de solución de ecuaciones](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Soluci%C3%B3n%20de%20ecuaciones) 
 
 ## Tema 3 
 - [Definición de Sistema de ecuaciones lineales](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Sistema%20de%20ecuaciones%20lineales) 
