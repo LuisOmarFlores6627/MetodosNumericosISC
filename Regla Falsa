@@ -2,3 +2,31 @@
 El método de la regla falsa, también conocido como regula falsi o falsa posición, es un método iterativo para
 resolver numéricamente ecuaciones no lineales. Este método combina el método de bisección y el método de la secante. 
 
+-----Algoritmo------
+Regla_Falsa:
+  descripcion: >
+    Algoritmo de Regla Falsa para encontrar la raíz de una función.
+  pasos:
+    - Paso_1: 
+        descripcion: Inicializar valores
+        acciones:
+          - Asignar valores iniciales a a y b (intervalo inicial)
+          - Evaluar la función en los extremos del intervalo para obtener f(a) y f(b)
+    - Paso_2:
+        descripcion: Iteración
+        acciones:
+          - Calcular el valor de c utilizando la fórmula de interpolación lineal
+          - Evaluar la función en c para obtener f(c)
+          - Verificar el cambio de signo entre f(a) y f(c), o f(c) y f(b)
+          - Actualizar el intervalo [a, b] según el cambio de signo
+    - Paso_3:
+        descripcion: Condición de convergencia
+        acciones:
+          - Repetir el Paso_2 hasta que se satisfaga una condición de convergencia (por ejemplo, |b - a| < epsilon)
+    - Paso_4:
+        descripcion: Retorno del resultado
+        acciones:
+          - Devolver el valor aproximado de la raíz encontrada (c)
+----------------------------------------------------------------------------------------------------------------------------
+
+
