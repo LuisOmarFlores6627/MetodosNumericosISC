@@ -2,7 +2,7 @@
 En el método de Gauss-Seidel se propone ir sustituyendo los nuevos valores de la aproximación siguiente conforme 
 se vayan obteniendo sin esperar a tener un vector completo. De esta forma se acelera la convergencia.
 
------Algoritmo------
+-----Algoritmo------//Método de Gauss-Seidel
 Algoritmo_de_Gauss_Seidel:
   Descripción: >
     Método iterativo para resolver sistemas de ecuaciones lineales aproximadamente.
