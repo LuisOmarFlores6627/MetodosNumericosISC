@@ -25,6 +25,7 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
       - [Ejemplo 4](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%204%20_M%C3%A9todo%20Newton) 
       - [Ejemplo 5](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%205%20_M%C3%A9todo%20Newton)
 4. [Método de la Secante](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/M%C3%A9todo%20de%20la%20Secante)  
+      - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_M%C3%A9todo%20Secante) 
 
 ## Tema 3 
 - [Definición de Sistema de ecuaciones lineales](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Sistema%20de%20ecuaciones%20lineales) 
