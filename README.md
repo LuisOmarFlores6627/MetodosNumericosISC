@@ -15,6 +15,7 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 2. [Regla Falsa](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Regla%20Falsa)  
       - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_Regla%20Falsa) 
       - [Ejemplo 2](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%202%20_Regla%20Falsa) 
+      - [Ejemplo 3](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%203%20_Regla%20Falsa) 
 
 ## Tema 3 
 - [Definición de Sistema de ecuaciones lineales](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Sistema%20de%20ecuaciones%20lineales) 
