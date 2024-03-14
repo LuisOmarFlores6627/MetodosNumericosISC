@@ -27,3 +27,63 @@ metodo_secante:
         Ir al Paso 2 y repetir el proceso hasta alcanzar la precisión deseada o un número máximo de iteraciones.
 ----------------------------------------------------------------------------------------------------------------------
 
+---IMPLEMENTACIÓN EN JAVA-----
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+import java.util.Scanner;
+
+public class Ejercicio1 {
+    public static double findRoot(String functionExpression, double x0, double x1, double tolerance) throws ScriptException {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("js");
+        
+        String function = "function f(x) { return " + functionExpression + "; }";
+        engine.eval(function);
+        
+        double x2 = 0;
+        double f0 = (double) engine.eval("f(" + x0 + ")");
+        double f1 = (double) engine.eval("f(" + x1 + ")");
+        int iterations = 0;
+        
+        do {
+            x2 = x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+            f0 = f1;
+            f1 = (double) engine.eval("f(" + x2 + ")");
+            x0 = x1;
+            x1 = x2;
+            iterations++;
+        } while (Math.abs(f1) > tolerance);
+        
+        return x2;
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Pedir al usuario que ingrese la función
+        System.out.println("Ingrese la función en términos de 'x', por ejemplo, 'Math.cos(x) - x':");
+        String functionExpression = scanner.nextLine();
+        
+        // Pedir al usuario que ingrese los puntos iniciales
+        System.out.println("Ingrese el punto inicial x0:");
+        double x0 = scanner.nextDouble();
+        System.out.println("Ingrese el punto inicial x1:");
+        double x1 = scanner.nextDouble();
+        
+        // Pedir al usuario que ingrese la tolerancia
+        System.out.println("Ingrese la tolerancia:");
+        double tolerance = scanner.nextDouble();
+        
+        try {
+            // Encontrar la raíz
+            double root = findRoot(functionExpression, x0, x1, tolerance);
+            
+            // Imprimir el resultado
+            System.out.println("Raíz encontrada: " + root);
+        } catch (ScriptException e) {
+            System.out.println("La función ingresada no es válida.");
+        }
+    }
+}
+
