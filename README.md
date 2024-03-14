@@ -13,6 +13,7 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
       - [Ejemplo 4](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%204%20_M%C3%A9todo%20de%20bisecci%C3%B3n) 
       - [Ejemplo 5](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%205%20_M%C3%A9todo%20de%20bisecci%C3%B3n) 
 2. [Regla Falsa](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Regla%20Falsa)  
+      - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_Regla%20Falsa) 
 
 ## Tema 3 
 - [Definición de Sistema de ecuaciones lineales](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Sistema%20de%20ecuaciones%20lineales) 
