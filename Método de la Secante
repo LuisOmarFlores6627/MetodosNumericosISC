@@ -1,1 +1,4 @@
+---Método de Secante:
+El método de la secante es un algoritmo de investigación de raíces que utiliza una serie de raíces de líneas secantes para 
+aproximar mejor la raíz de una función. Es una variación del método de Newton-Raphson.
 
