@@ -2,3 +2,28 @@
 El método de la secante es un algoritmo de investigación de raíces que utiliza una serie de raíces de líneas secantes para 
 aproximar mejor la raíz de una función. Es una variación del método de Newton-Raphson.
 
+----Algoritmo-----
+metodo_secante:
+  descripcion: |
+    El Método de la Secante es un método numérico utilizado para encontrar las raíces de una función no lineal.
+  pasos:
+    - Paso_1: |
+        Inicializar valores iniciales x0 y x1, y definir la tolerancia ε.
+    - Paso_2: |
+        Calcular el valor de la función en x0 y x1: f(x0) y f(x1), respectivamente.
+    - Paso_3: |
+        Calcular la pendiente de la secante: m = (f(x1) - f(x0)) / (x1 - x0).
+    - Paso_4: |
+        Calcular el próximo punto de intersección de la secante con el eje x:
+        x2 = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0)).
+    - Paso_5: |
+        Si |x2 - x1| < ε o |f(x2)| < ε, detener el algoritmo y devolver x2 como la aproximación de la raíz.
+        De lo contrario, continuar con el siguiente paso.
+    - Paso_6: |
+        Actualizar x0 y x1:
+        x0 = x1
+        x1 = x2
+    - Paso_7: |
+        Ir al Paso 2 y repetir el proceso hasta alcanzar la precisión deseada o un número máximo de iteraciones.
+----------------------------------------------------------------------------------------------------------------------
+
