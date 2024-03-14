@@ -33,3 +33,143 @@ metodo_de_newton:
         - continuar_iterando_o_finalizar: "Dependiendo del criterio de convergencia y max_iter"
 -----------------------------------------------------------------------------------------------
 
+---IMPLEMENTACIÓN EN JAVA-----
+import java.util.Scanner;
+import java.util.function.Function;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese la función f(x):");
+        String funcionStr = scanner.nextLine();
+        Function<Double, Double> funcion = x -> evaluarFuncion(funcionStr, x);
+
+        System.out.println("Ingrese la estimación inicial para la raíz:");
+        double estimacionInicial = scanner.nextDouble();
+
+        System.out.println("Ingrese la tolerancia:");
+        double tolerancia = scanner.nextDouble();
+
+        double x = estimacionInicial;
+        int iteracion = 0;
+
+        // Definir el número máximo de iteraciones permitidas
+        int maxIteraciones = 1000;
+
+        while (true) {
+            // Calcular el valor de la función y su derivada en x
+            double fx = funcion.apply(x);
+            double fpx = calcularDerivada(funcion, x);
+
+            // Calcular la nueva estimación
+            double nuevaEstimacion = x - (fx / fpx);
+
+            // Verificar convergencia
+            if (Math.abs(nuevaEstimacion - x) < tolerancia || iteracion >= maxIteraciones) {
+                System.out.println("La raíz aproximada es: " + nuevaEstimacion);
+                break;
+            }
+
+            // Actualizar x para la próxima iteración
+            x = nuevaEstimacion;
+            iteracion++;
+        }
+
+        scanner.close();
+    }
+
+    // Método para evaluar la función en un punto dado
+    private static double evaluarFuncion(String funcionStr, double x) {
+        return evaluarExpresion(funcionStr, x);
+    }
+
+    // Método para calcular la derivada numérica de la función en un punto dado
+    private static double calcularDerivada(Function<Double, Double> funcion, double x) {
+        double h = 0.0001; // Tamaño del paso para la aproximación numérica de la derivada
+        return (funcion.apply(x + h) - funcion.apply(x)) / h;
+    }
+
+    // Método para evaluar una expresión matemática en un punto dado
+    private static double evaluarExpresion(String expresionStr, double x) {
+        // Convertir la expresión en una cadena con el valor de x sustituido
+        String evaluada = expresionStr.replaceAll("x", Double.toString(x));
+
+        // Evaluar la expresión y devolver el resultado
+        return evaluar(evaluada);
+    }
+
+    // Método para evaluar una expresión matemática
+    private static double evaluar(String expresionStr) {
+        return new Object() {
+            int pos = -1, ch;
+
+            void nextChar() {
+                ch = (++pos < expresionStr.length()) ? expresionStr.charAt(pos) : -1;
+            }
+
+            boolean eat(int charToEat) {
+                while (ch == ' ') nextChar();
+                if (ch == charToEat) {
+                    nextChar();
+                    return true;
+                }
+                return false;
+            }
+
+            double parse() {
+                nextChar();
+                double x = parseExpression();
+                if (pos < expresionStr.length()) throw new RuntimeException("Carácter inesperado: " + (char)ch);
+                return x;
+            }
+
+            double parseExpression() {
+                double x = parseTerm();
+                for (;;) {
+                    if      (eat('+')) x += parseTerm(); // suma
+                    else if (eat('-')) x -= parseTerm(); // resta
+                    else return x;
+                }
+            }
+
+            double parseTerm() {
+                double x = parseFactor();
+                for (;;) {
+                    if      (eat('*')) x *= parseFactor(); // multiplicación
+                    else if (eat('/')) x /= parseFactor(); // división
+                    else return x;
+                }
+            }
+
+            double parseFactor() {
+                if (eat('+')) return parseFactor(); // unario más
+                if (eat('-')) return -parseFactor(); // unario menos
+
+                double x;
+                int startPos = this.pos;
+                if (eat('(')) { // paréntesis
+                    x = parseExpression();
+                    eat(')');
+                } else if ((ch >= '0' && ch <= '9') || ch == '.') { // números
+                    while ((ch >= '0' && ch <= '9') || ch == '.') nextChar();
+                    x = Double.parseDouble(expresionStr.substring(startPos, this.pos));
+                } else if (ch >= 'a' && ch <= 'z') { // funciones y variables
+                    while (ch >= 'a' && ch <= 'z') nextChar();
+                    String func = expresionStr.substring(startPos, this.pos);
+                    x = parseFactor();
+                    if (func.equals("sqrt")) x = Math.sqrt(x);
+                    else throw new RuntimeException("Función desconocida: " + func);
+                } else {
+                    throw new RuntimeException("Carácter inesperado: " + (char)ch);
+                }
+
+                if (eat('^')) x = Math.pow(x, parseFactor()); // exponente
+
+                return x;
+            }
+        }.parse();
+    }
+}
+-------------------------------------------------------------------------------------------------------------
