@@ -2,3 +2,34 @@
 El Método de Newton, también conocido como Método de Newton-Raphson, es un algoritmo iterativo para encontrar raíces de una función no lineal. 
 El método es especialmente útil cuando se necesita una aproximación numérica rápida y precisa de las raíces de una función.
 
+----Algoritmo-----
+metodo_de_newton:
+  descripcion: >
+    Algoritmo del Método de Newton para encontrar raíces de una función no lineal.
+  parametros:
+    - funcion: "f(x)"
+      descripcion: "La función para la cual se desea encontrar la raíz."
+    - derivada: "f'(x)"
+      descripcion: "La derivada de la función."
+    - estimacion_inicial: "x0"
+      descripcion: "Estimación inicial para la raíz."
+    - tolerancia: "tol"
+      descripcion: "Tolerancia para el criterio de convergencia."
+    - max_iteraciones: "max_iter"
+      descripcion: "Número máximo de iteraciones permitidas."
+  pasos:
+    - paso: "1"
+      descripcion: "Inicialización"
+      acciones:
+        - seleccionar_estimacion_inicial: "x0"
+    - paso: "2"
+      descripcion: "Iteración"
+      acciones:
+        - calcular_nueva_estimacion: "xn+1 = xn - f(xn) / f'(xn)"
+    - paso: "3"
+      descripcion: "Convergencia"
+      acciones:
+        - verificar_criterio_de_convergencia: "|f(xn+1)| < tol o |xn+1 - xn| < tol"
+        - continuar_iterando_o_finalizar: "Dependiendo del criterio de convergencia y max_iter"
+-----------------------------------------------------------------------------------------------
+
