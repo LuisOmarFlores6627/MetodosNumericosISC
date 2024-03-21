@@ -7,7 +7,7 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 ## Tema 2
 - [Definición Métodos de solución de ecuaciones](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Soluci%C3%B3n%20de%20ecuaciones) 
 1. [Método de bisección](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Bisecci%C3%B3n)  
-      - [EJemplos Método de bisección](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/main/Ejercicios%20M%C3%A9todo%20de%20bisecci%C3%B3n) 
+      - [Ejemplos Método de bisección](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/main/Ejercicios%20M%C3%A9todo%20de%20bisecci%C3%B3n) 
       
 2. [Regla Falsa](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Regla%20Falsa)  
       - [Ejemplos Regla Falsa](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/main/Ejercicios%20de%20regla%20falsa) 
