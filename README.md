@@ -10,11 +10,8 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
       - [EJemplos Método de bisección](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/main/Ejercicios%20M%C3%A9todo%20de%20bisecci%C3%B3n) 
       
 2. [Regla Falsa](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Regla%20Falsa)  
-      - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_Regla%20Falsa) 
-      - [Ejemplo 2](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%202%20_Regla%20Falsa)
-      - [Ejemplo 3](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%203%20_Regla%20Falsa) 
-      - [Ejemplo 4](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%204%20_Regla%20Falsa) 
-      - [Ejemplo 5](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%205%20_Regla%20Falsa) 
+      - [Ejemplos Regla Falsa](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/main/Ejercicios%20de%20regla%20falsa) 
+      
 3. [Método Newton](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/M%C3%A9todo%20Newton)  
       - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_M%C3%A9todo%20Newton) 
       - [Ejemplo 2](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%202%20_M%C3%A9todo%20Newton) 
