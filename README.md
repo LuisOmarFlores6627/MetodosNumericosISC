@@ -7,11 +7,8 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 ## Tema 2
 - [Definición Métodos de solución de ecuaciones](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Soluci%C3%B3n%20de%20ecuaciones) 
 1. [Método de bisección](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Bisecci%C3%B3n)  
-      - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_M%C3%A9todo%20de%20bisecci%C3%B3n) 
-      - [Ejemplo 2](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%202%20_M%C3%A9todo%20de%20bisecci%C3%B3n) 
-      - [Ejemplo 3](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%203%20_M%C3%A9todo%20de%20bisecci%C3%B3n) 
-      - [Ejemplo 4](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%204%20_M%C3%A9todo%20de%20bisecci%C3%B3n) 
-      - [Ejemplo 5](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%205%20_M%C3%A9todo%20de%20bisecci%C3%B3n) 
+      - [EJemplos Método de bisección](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/main/Ejercicios%20M%C3%A9todo%20de%20bisecci%C3%B3n) 
+      
 2. [Regla Falsa](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Regla%20Falsa)  
       - [Ejemplo 1](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%201%20_Regla%20Falsa) 
       - [Ejemplo 2](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Ejercicio%202%20_Regla%20Falsa)
