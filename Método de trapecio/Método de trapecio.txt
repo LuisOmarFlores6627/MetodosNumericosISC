@@ -6,24 +6,24 @@ solamente las ordenadas de los puntos extremos de los intervalos.
 
 ---------------------Algoritmo---------------------------
 Método_del_Trapecio:
-  Descripción: |
+  Descripción: 
     El Método del Trapecio es una técnica de integración numérica que aproxima el valor de una integral definida mediante la suma de áreas de trapecios formados
 debajo de la curva de la función.
   Paso_a_Paso:
-    - Paso_1: |
+    - Paso_1: 
         Definir la función f(x) que se desea integrar en el intervalo [a, b].
-    - Paso_2: |
+    - Paso_2: 
         Especificar el límite inferior 'a' y el límite superior 'b' del intervalo de integración.
-    - Paso_3: |
+    - Paso_3: 
         Especificar el número de subintervalos 'n' en los que se dividirá el intervalo [a, b]. Cuanto mayor sea 'n', más precisa será la aproximación.
-    - Paso_4: |
+    - Paso_4: 
         Calcular el ancho de cada subintervalo h = (b - a) / n.
-    - Paso_5: |
+    - Paso_5: 
         Calcular los valores de la función en los extremos de los subintervalos: f(a), f(a + h), f(a + 2h), ..., f(b).
-    - Paso_6: |
+    - Paso_6: 
         Sumar todas las áreas de los trapecios formados por los subintervalos utilizando la fórmula:
         Área = h * (f(a) + 2 * f(a + h) + 2 * f(a + 2h) + ... + f(b)) / 2
-    - Paso_7: |
+    - Paso_7: 
         El resultado de la integral aproximada es la suma de todas las áreas calculadas en el paso anterior.
 ------------------------------------------------------------------------------------------------------------------
 
