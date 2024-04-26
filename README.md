@@ -36,4 +36,5 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 1. [Método de trapecio](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/M%C3%A9todo%20de%20trapecio/M%C3%A9todo%20de%20trapecio.txt) 
       - [Ejemplos Método de trapecio](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/main/M%C3%A9todo%20de%20trapecio/Ejercicios%20M%C3%A9todo%20de%20trapecio) 
 2. [Método de Simpson](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Simpson/Simpson) 
+      - [Ejemplos Método de Simpson](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/main/Simpson/Ejemplos%20M%C3%A9todo%20de%20Simpson) 
 
