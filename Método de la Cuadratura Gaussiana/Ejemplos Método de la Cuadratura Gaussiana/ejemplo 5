@@ -1,1 +1,51 @@
+----------------------Ejemplo 5 ------------------------------
+import java.util.function.DoubleUnaryOperator;
 
+public class GaussianQuadrature {
+
+    // Función a integrar
+    public interface Function {
+        double apply(double x);
+    }
+
+    // Método de cuadratura Gaussiana
+    public static double gaussQuadrature(Function f, double a, double b) {
+        // Puntos y pesos para la cuadratura Gaussiana de grado 7
+        double[] x = {
+            -0.949107912342759, -0.741531185599394, -0.405845151377397,
+            0.0, 0.405845151377397, 0.741531185599394, 0.949107912342759
+        };
+        double[] w = {
+            0.129484966168870, 0.279705391489277, 0.381830050505119,
+            0.417959183673469, 0.381830050505119, 0.279705391489277, 0.129484966168870
+        };
+
+        // Escala los puntos al intervalo [a, b] y calcula la suma ponderada de los valores de la función
+        double integral = 0.0;
+        for (int i = 0; i < 7; i++) {
+            double x_mapped = 0.5 * (b - a) * x[i] + 0.5 * (a + b);
+            integral += w[i] * f.apply(x_mapped);
+        }
+
+        // Escala por el tamaño del intervalo
+        integral *= 0.5 * (b - a);
+
+        return integral;
+    }
+
+    public static void main(String[] args) {
+        double a = 0.0;
+        double b = Math.PI; // Intervalo de integración: [0, π]
+
+        // Función de prueba: f(x) = sen(x)
+        Function testFunction = Math::sin;
+
+        double integral = gaussQuadrature(testFunction, a, b);
+        System.out.println("Aproximación de la integral: " + integral);
+    }
+}
+----------------------------------------------------------------------------
+
+---------------Salida en pantalla ----------------------
+Aproximación de la integral: 2.000000000001791
+-------------------------------------------------------
