@@ -1,1 +1,45 @@
+-----------------Ejemplo 3 ---------------------
+public class Simpson38 {
+    // Define la función a integrar
+    public static double f(double x) {
+        // Define la función que deseas integrar aquí
+        return Math.sqrt(x); // Integra la función raíz cuadrada de x
+    }
 
+    // Aproxima la integral de la función dada usando la regla de Simpson 3/8
+    public static double simpsons38(double a, double b, int n) {
+        try {
+            double h = (b - a) / n;
+            double sum = f(a) + f(b);
+
+            for (int i = 1; i < n; i++) {
+                if (i % 3 == 0) {
+                    sum += 2 * f(a + i * h);
+                } else {
+                    sum += 3 * f(a + i * h);
+                }
+            }
+
+            return (3 * h / 8) * sum;
+        } catch (Exception e) {
+            System.err.println("Error evaluando la función: " + e.getMessage());
+            return Double.NaN; // Otra acción apropiada en caso de error
+        }
+    }
+
+    public static void main(String[] args) {
+        double a = 0; // Límite inferior de integración
+        double b = 4; // Límite superior de integración
+        int n = 100; // Número de intervalos
+
+        double result = simpsons38(a, b, n);
+        if (!Double.isNaN(result)) {
+            System.out.printf("Valor aproximado de la integral: %.4f%n", result);
+        }
+    }
+}
+------------------------------------------------------------------------------------
+
+--------------------Salida en pantalla------------------
+Valor aproximado de la integral: 5.3126
+------------------------------------------------------
