@@ -40,5 +40,5 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 3. [Método de la Cuadratura Gaussiana](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/M%C3%A9todo%20de%20la%20Cuadratura%20Gaussiana/M%C3%A9todo%20de%20la%20Cuadratura%20Gaussiana.txt)  
       - [Ejemplos Método de la Cuadratura Gaussiana](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/main/M%C3%A9todo%20de%20la%20Cuadratura%20Gaussiana/Ejemplos%20M%C3%A9todo%20de%20la%20Cuadratura%20Gaussiana)
 
-##Tema 5
+## Tema 5
 
