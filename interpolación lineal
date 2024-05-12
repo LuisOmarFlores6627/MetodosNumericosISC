@@ -1,1 +1,70 @@
+-----------------------interpolación lineal-------------------------------
+La interpolación lineal es un método numérico y gráfico que permite encontrar datos desconocidos entre otros datos ya conocidos. Consiste en trazar una 
+línea recta que pasa por dos puntos conocidos y calcular los valores intermedios según esta recta.
+
+---------------ALGORITMO------------------------
+Algoritmo Interpolación Lineal:
+
+  Inicio:
+    - Solicitar al usuario los puntos conocidos (x0, y0) y (x1, y1)
+    - Solicitar al usuario el valor de x para interpolar (x)
+    - Calcular la interpolación lineal:
+      - Calcular la pendiente (m) entre los puntos conocidos:
+        m = (y1 - y0) / (x1 - x0)
+      - Calcular el valor de y interpolado utilizando la fórmula:
+        y = y0 + m * (x - x0)
+    - Mostrar el valor interpolado de y para x
+--------------------------------------------------
+
+----------IMPLEMENTACIÓN EN JAVA -------------------
+import java.util.Scanner;
+
+public class InterpolacionLineal {
+    
+    // Método para calcular la interpolación lineal
+    public static double interpolacionLineal(double x0, double y0, double x1, double y1, double x) {
+        return y0 + ((y1 - y0) / (x1 - x0)) * (x - x0);
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Solicitar los puntos conocidos
+        System.out.println("Ingresa el primer punto conocido (x0, y0):");
+        System.out.print("x0: ");
+        double x0 = scanner.nextDouble();
+        System.out.print("y0: ");
+        double y0 = scanner.nextDouble();
+        
+        System.out.println("Ingresa el segundo punto conocido (x1, y1):");
+        System.out.print("x1: ");
+        double x1 = scanner.nextDouble();
+        System.out.print("y1: ");
+        double y1 = scanner.nextDouble();
+        
+        // Solicitar el valor de x para interpolar
+        System.out.print("Ingresa el valor de x para interpolar: ");
+        double x = scanner.nextDouble();
+        
+        // Calcular la interpolación lineal
+        double y = interpolacionLineal(x0, y0, x1, y1, x);
+        
+        // Mostrar el resultado
+        System.out.println("El valor interpolado de y para x=" + x + " es: " + y);
+        
+        scanner.close();
+    }
+}
+-----------------------------------------------------------------------------
+
+------------Salida en pantalla--------------
+Ingresa el primer punto conocido (x0, y0):
+x0: 1
+y0: 0
+Ingresa el segundo punto conocido (x1, y1):
+x1: 6
+y1: 1.7918
+Ingresa el valor de x para interpolar: 2
+El valor interpolado de y para x=2.0 es: 0.35836
+--------------------------------------------------
 
