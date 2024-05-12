@@ -45,4 +45,5 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 1. [Interpolación Lineal](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/interpolaci%C3%B3n%20lineal) 
       - [Ejemplos Interpolación Lineal](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/src) 
 2. [Interpolación Cuadrática](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/master/interpolaci%C3%B3n%20cuadr%C3%A1tica) 
+      - [Ejemplos Interpolación Cuadrática](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/cuadratica) 
 
