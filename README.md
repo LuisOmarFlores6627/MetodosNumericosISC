@@ -43,4 +43,6 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 ## Tema 5
 - [Métodos de solución de problemas de interpolación](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/m%C3%A9todos%20de%20soluci%C3%B3n%20de%20problemas%20de%20interpolaci%C3%B3n) 
 1. [Interpolación Lineal](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/interpolaci%C3%B3n%20lineal) 
+      - [Ejemplos Interpolación Lineal](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/src) 
+2. [Interpolación Cuadrática](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/master/interpolaci%C3%B3n%20cuadr%C3%A1tica) 
 
