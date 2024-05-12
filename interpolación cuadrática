@@ -1,0 +1,84 @@
+-----------------Interpolación Cuadrática----------------
+La interpolación cuadrática es un método de interpolación que se utiliza cuando se tienen tres puntos de datos. Este método consiste en ajustar los tres
+puntos en un polinomio de segundo grado, lo que permite lograr una mejor estimación al introducir una curvatura en la línea que une los puntos.
+
+---------------------Algoritmo---------------------------
+InterpolacionCuadratica:
+  entrada:
+    - x1: "Valor de x1"
+    - x2: "Valor de x2"
+    - x3: "Valor de x3"
+    - fx1: "Valor de f(x1)"
+    - fx2: "Valor de f(x2)"
+    - fx3: "Valor de f(x3)"
+    - x: "Valor de x para interpolar"
+  salida:
+    - resultado: "Resultado de la interpolación cuadrática en x"
+  algoritmo: |
+    Función interpolarCuadratica(x1, x2, x3, fx1, fx2, fx3, x):
+      L1 = ((x - x2) * (x - x3)) / ((x1 - x2) * (x1 - x3))
+      L2 = ((x - x1) * (x - x3)) / ((x2 - x1) * (x2 - x3))
+      L3 = ((x - x1) * (x - x2)) / ((x3 - x1) * (x3 - x2))
+      resultado = (fx1 * L1) + (fx2 * L2) + (fx3 * L3)
+      retornar resultado
+------------------------------------------------------------
+
+---------IMPLEMENTACIÓN EN JAVA-----------------------
+package intercua1;
+import java.util.Scanner;
+
+public class InterCua1 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el valor de x1:");
+        double x1 = scanner.nextDouble();
+        System.out.println("Ingrese el valor de x2:");
+        double x2 = scanner.nextDouble();
+        System.out.println("Ingrese el valor de x3:");
+        double x3 = scanner.nextDouble();
+
+        System.out.println("Ingrese el valor de f(x1):");
+        double fx1 = scanner.nextDouble();
+        System.out.println("Ingrese el valor de f(x2):");
+        double fx2 = scanner.nextDouble();
+        System.out.println("Ingrese el valor de f(x3):");
+        double fx3 = scanner.nextDouble();
+
+        System.out.println("Ingrese el valor de x para interpolar:");
+        double x = scanner.nextDouble();
+
+        double resultado = interpolarCuadratica(x1, x2, x3, fx1, fx2, fx3, x);
+        System.out.println("El resultado de la interpolación cuadrática en x=" + x + " es: " + resultado);
+    }
+
+    public static double interpolarCuadratica(double x1, double x2, double x3, double fx1, double fx2, double fx3, double x) {
+        double L1 = ((x - x2) * (x - x3)) / ((x1 - x2) * (x1 - x3));
+        double L2 = ((x - x1) * (x - x3)) / ((x2 - x1) * (x2 - x3));
+        double L3 = ((x - x1) * (x - x2)) / ((x3 - x1) * (x3 - x2));
+
+        double resultado = (fx1 * L1) + (fx2 * L2) + (fx3 * L3);
+        return resultado;
+    }
+}
+----------------------------------------------------------------------------------------------------
+
+-----------------Salida en pantalla--------------------
+Ingrese el valor de x1:
+1
+Ingrese el valor de x2:
+4
+Ingrese el valor de x3:
+6
+Ingrese el valor de f(x1):
+0
+Ingrese el valor de f(x2):
+1.386294
+Ingrese el valor de f(x3):
+1.791759
+Ingrese el valor de x para interpolar:
+2
+El resultado de la interpolación cuadrática en x=2.0 es: 0.5658441999999999
+----------------------------------------------------------------------------
+
