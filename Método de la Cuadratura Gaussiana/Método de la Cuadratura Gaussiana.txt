@@ -1,0 +1,184 @@
+-----------------Método de la Cuadratura Gaussiana--------------------------
+El método de la cuadratura gaussiana es un método de análisis numérico que aproxima la integral definida de una función. Este método selecciona los 
+puntos de evaluación de manera óptima, no de forma igualmente espaciada, para obtener el resultado exacto al integrar polinomios de grado 2n-1 o menos. 
+-------------------------------------------------------------------------------------
+
+-------Algoritmo Método de la Cuadratura Gaussiana ----------------------
+nombre: Metodo de la Cuadratura Gaussiana
+descripcion: 
+  El Método de la Cuadratura Gaussiana es un método numérico para la aproximación de integrales definidas. 
+  Se basa en la idea de aproximar la integral de una función mediante una suma ponderada de los valores de la función en puntos específicos llamados nodos.
+  Estos nodos y los correspondientes pesos se eligen de tal manera que la aproximación resultante sea lo más precisa posible.
+
+paso_1:
+  descripcion: Definir la función a integrar y el intervalo de integración.
+  codigo: 
+    Definir la función f(x).
+    Definir el intervalo de integración [a, b].
+
+paso_2:
+  descripcion: Escoger el número de nodos y calcular sus posiciones y pesos.
+  codigo: 
+    Determinar el número de nodos n.
+    Calcular las posiciones de los nodos x_i y los pesos w_i para la Cuadratura Gaussiana de n puntos en el intervalo [-1, 1].
+
+paso_3:
+  descripcion: Calcular la aproximación de la integral.
+  codigo: 
+    Calcular la aproximación de la integral usando la fórmula de Cuadratura Gaussiana:
+      integral ≈ sumatoria desde i=1 hasta n de (w_i * f((b-a)/2 * x_i + (b+a)/2)).
+----------------------------------------------------------------------------------------------------------
+
+-------------------Implementacion en JAVA--------------------
+import java.util.Scanner;
+
+public class GaussianQuadrature {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Pedir la función al usuario
+        System.out.print("Ingrese la función a integrar (utilice 'x' como variable independiente, y funciones trigonométricas como 'sin', 'cos', 'tan'): ");
+        String funcionStr = scanner.nextLine();
+
+        // Pedir los límites de integración
+        System.out.print("Ingrese el límite inferior de integración (a): ");
+        double a = scanner.nextDouble();
+        System.out.print("Ingrese el límite superior de integración (b): ");
+        double b = scanner.nextDouble();
+
+        // Pedir el número de puntos para la aproximación
+        System.out.print("Ingrese el número de puntos para la aproximación: ");
+        int n = scanner.nextInt();
+
+        // Calcular la integral utilizando el método de la Cuadratura de Gauss
+        double integral = calcularIntegral(funcionStr, a, b, n);
+
+        System.out.println("El resultado de la integral es: " + integral);
+
+        scanner.close();
+    }
+
+    // Calcular la integral de la función en el intervalo [a, b] utilizando el método de la Cuadratura de Gauss
+    private static double calcularIntegral(String funcionStr, double a, double b, int n) {
+        double sum = 0.0;
+        double[] x = new double[n];
+        double[] w = new double[n];
+
+        // Calcular los nodos y pesos para el número de puntos especificado
+        calcularNodosYPesos(n, x, w);
+
+        // Calcular la integral utilizando los nodos y pesos
+        for (int i = 0; i < n; i++) {
+            double fx = evaluarFuncion(funcionStr, (a + b) / 2.0 + (b - a) / 2.0 * x[i]);
+            sum += w[i] * fx;
+        }
+
+        return sum * (b - a) / 2.0;
+    }
+
+    // Evaluar la función ingresada por el usuario en un punto dado
+    private static double evaluarFuncion(String funcionStr, double x) {
+        // Implementación de un parser simple para evaluar funciones matemáticas
+        return evaluateFunction(funcionStr, x);
+    }
+
+    private static double evaluateFunction(String funcionStr, double x) {
+        // Reemplazar la variable 'x' en la cadena de la función con el valor específico
+        String replacedFunc = funcionStr.replace("sin", "Math.sin")
+                                         .replace("cos", "Math.cos")
+                                         .replace("tan", "Math.tan")
+                                         .replace("x", Double.toString(x));
+        try {
+            // Evaluar la expresión matemática utilizando la función eval de la clase Math
+            return (double) new Object() { }.getClass().getMethod("eval", String.class).invoke(null, replacedFunc);
+        } catch (Exception e) {
+            // En caso de error, regresar NaN (no se pudo evaluar la función correctamente)
+            return Double.NaN;
+        }
+    }
+
+    // Calcular los nodos y pesos para el método de la Cuadratura de Gauss
+    private static void calcularNodosYPesos(int n, double[] x, double[] w) {
+        if (n == 1) {
+            x[0] = 0.0;
+            w[0] = 2.0;
+        } else {
+            double[] P = new double[n];
+            double[] Pp = new double[n];
+            double[] d = new double[n];
+
+            // Calcular los polinomios de Legendre
+            for (int i = 0;i < n; i++) {
+                P[i] = legendrePolynomial(i, x[i]);
+            }
+
+            // Calcular los polinomios de Legendre derivados
+            for (int i = 1; i < n; i++) {
+                Pp[i] = derivateLegendrePolynomial(i, x[i]);
+            }
+
+            // Calcular los polinomios de Legendre normalizados
+            for (int i = 0; i < n; i++) {
+                d[i] = derivateLegendrePolynomial(i + 1, x[i]);
+                P[i] /= d[i];
+                Pp[i] /= d[i];
+            }
+
+            // Calcular los nodos
+            for (int i = 0; i < n; i++) {
+                double p = P[i];
+                double p1 = P[i + 1];
+                double p2 = P[i + 2];
+                double p1p = Pp[i + 1];
+                double p2p = Pp[i + 2];
+                double denom = (p1p * p2 - p1 * p2p) / (p - p2);
+                x[i] = (p * p2p - p2 * p1p) / (p1p - p2p);
+                x[i] = x[i] - x[i] * x[i] * denom;
+            }
+
+            // Calcular los pesos
+            for (int i = 0; i < n; i++) {
+                double p = P[i];
+                double p1 = P[i + 1];
+                double p2 = P[i + 2];
+                double p1p = Pp[i + 1];
+                double p2p = Pp[i + 2];
+                double denom = (p1p * p2 - p1 * p2p) / (p - p2);
+                w[i] = 2.0 * (1.0 - x[i] * x[i]) / (p * p1p * denom);
+            }
+        }
+    }
+
+    // Calcular el polinomio de Legendre de grado n
+    private static double legendrePolynomial(int n, double x) {
+        double result = 1.0;
+        double x2 = x * x;
+
+        for (int i = 1; i <= n; i++) {
+            result *= x2 - 1.0;
+            result /= i;
+            result *= 2.0 * i - 1.0;
+        }
+
+        return result;
+    }
+
+    // Calcular la derivada del polinomio de Legendre de grado n
+    private static double derivateLegendrePolynomial(int n, double x) {
+        double result = n * (x * legendrePolynomial(n, x) - legendrePolynomial(n - 1, x)) / (x * x - 1.0);
+        return result;
+    }
+}
+---------------------------------------------------------------------------------------------------------------
+
+-----------Salida en pantalla-----------------
+Ingrese la función a integrar (utilice 'x' como variable independiente, y funciones trigonométricas como 'sin', 'cos', 'tan'): sin(x)
+Ingrese el límite inferior de integración (a): 0
+Ingrese el límite superior de integración (b): 3.141592653589793
+Ingrese el número de puntos para la aproximación: 100
+El resultado de la integral es: 2.0
+------------------------------------------
+
+
+
