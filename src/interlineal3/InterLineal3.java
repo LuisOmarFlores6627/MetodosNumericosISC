@@ -23,3 +23,5 @@ public class InterLineal3 {
     }
 }
 
+//----------Salida en pantalla--------
+//El valor interpolado de y para x=2.0 es: 2.0  
