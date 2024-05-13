@@ -31,3 +31,68 @@ Interpolación de Lagrange:
 -------------------------------------------------------------------------------------------------------------
 
 --------------------------IMPLEMENTACIÓN EN JAVA----------------------------------------
+import java.util.Scanner;
+
+public class LagrangeInterpolation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Pedir al usuario el número de puntos conocidos
+        System.out.print("Introduce el número de puntos conocidos: ");
+        int numPoints = scanner.nextInt();
+
+        // Arrays para almacenar las coordenadas x e y de los puntos conocidos
+        double[] x = new double[numPoints];
+        double[] y = new double[numPoints];
+
+        // Pedir al usuario las coordenadas x e y de los puntos conocidos
+        System.out.println("Introduce las coordenadas x e y de los puntos conocidos:");
+        for (int i = 0; i < numPoints; i++) {
+            System.out.print("x[" + i + "]: ");
+            x[i] = scanner.nextDouble();
+            System.out.print("y[" + i + "]: ");
+            y[i] = scanner.nextDouble();
+        }
+
+        // Pedir al usuario el valor de x para el cual se desea interpolar y
+        System.out.print("Introduce el valor de x para el cual deseas interpolar: ");
+        double xInterpolate = scanner.nextDouble();
+
+        // Calcular el resultado de la interpolación de Lagrange
+        double result = lagrangeInterpolation(x, y, xInterpolate);
+
+        // Mostrar el resultado
+        System.out.println("El resultado de la interpolación de Lagrange para x = " + xInterpolate + " es: " + result);
+
+        scanner.close();
+    }
+
+    // Método para calcular la interpolación de Lagrange
+    public static double lagrangeInterpolation(double[] x, double[] y, double xInterpolate) {
+        double result = 0;
+
+        for (int i = 0; i < x.length; i++) {
+            double term = y[i];
+            for (int j = 0; j < x.length; j++) {
+                if (j != i) {
+                    term = term * (xInterpolate - x[j]) / (x[i] - x[j]);
+                }
+            }
+            result += term;
+        }
+
+        return result;
+    }
+}
+-------------------------------------------------------------------------------------------------
+
+-----------------Salida en pantalla--------------------------------
+Introduce el número de puntos conocidos: 2
+Introduce las coordenadas x e y de los puntos conocidos:
+x[0]: 7
+y[0]: 3940
+x[1]: 13
+y[1]: 4755
+Introduce el valor de x para el cual deseas interpolar: 10
+El resultado de la interpolación de Lagrange para x = 10.0 es: 4347.5
+----------------------------------------------------------------------
