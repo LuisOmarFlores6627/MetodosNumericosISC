@@ -48,5 +48,8 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
       - [Ejemplos Interpolación Cuadrática](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/cuadratica) 
 3. [Interpolación Newton](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/interpolacion%20newton)
       - [Ejemplos Interpolación Newton](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/iterpolacionNew) 
+3. [Interpolación Lagrange](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/interpolacion%20lagrange)
+      - [Ejemplos Interpolación Lagrange](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/lagrange) 
+
 
 
