@@ -49,6 +49,7 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 3. [Interpolción Newton](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/interpolacion%20newton)
       - [Ejemplo Interpolción Newton](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/iterpolacionNew)
 4. [Interpolción Lagrange](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/interpolacion%20lagrange)
+      - [Ejemplo Interpolción Lagrange](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/lagrange)
  
 
 
