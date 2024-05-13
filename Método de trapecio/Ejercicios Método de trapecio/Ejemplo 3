@@ -1,0 +1,59 @@
+------------------Ejemplo 3----------------
+package metodotrapecio;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+import java.util.function.Function;
+
+public class MetodoTrapecio {
+
+    public static double metodoTrapecio(Function<Double, Double> f, double a, double b, int n) {
+        double h = (b - a) / n;
+        double suma = 0.5 * (f.apply(a) + f.apply(b)); // Sumamos los extremos
+
+        for (int i = 1; i < n; i++) {
+            double x = a + i * h;
+            suma += f.apply(x);
+        }
+ 
+        return h * suma;
+    }
+
+    public static double richardsonExtrapolation(Function<Double, Double> f, double a, double b, int n) {
+        double h = (b - a) / n;
+        double hBy2 = h / 2;
+        double suma1 = 0.5 * (f.apply(a) + f.apply(b));
+        double suma2 = 0.0;
+
+        for (int i = 1; i < n; i++) {
+            double x = a + i * h;
+            suma2 += f.apply(x + hBy2);
+        }
+
+        double resultN = h * (suma1 + suma2);
+        double resultNBy4 = (4.0 * metodoTrapecio(f, a, b, n * 2) - metodoTrapecio(f, a, b, n)) / 3.0;
+        return resultNBy4;
+    }
+
+    public static void main(String[] args) {
+        // Definimos la función f(x) = e^(-x^2)
+        Function<Double, Double> funcion = x -> Math.exp(-x * x);
+
+        // Definimos los límites de la integral
+        double a = -1.0; // Límite inferior
+        double b = 1.0; // Límite superior
+
+        // Definimos el número inicial de subintervalos
+        int n = 100;
+
+        // Calculamos el resultado de la integral aproximada
+        double resultado = richardsonExtrapolation(funcion, a, b, n);
+        System.out.println("El resultado de la integral aproximada es: " + resultado);
+    }
+}
+--------------------------------------------------------------------------------------------
+
+-----------Salida en pantalla--------------
+El resultado de la integral aproximada es: 1.4936482657883516
+-------------------------------------------
