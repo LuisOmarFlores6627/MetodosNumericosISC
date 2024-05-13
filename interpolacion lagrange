@@ -1,1 +1,33 @@
+--------------Interpolación Lagrange----------------
+La interpolación de Lagrange es un método numérico que aproxima funciones utilizando un polinomio que pasa por puntos conocidos
+de la función que se pretende aproximar. Es un método de interpolación polinómica que busca encontrar un polinomio que pase exactamente por los puntos dados
 
+------------------Algoritmo--------------------------
+Interpolación de Lagrange:
+
+  Descripción: |
+    El método de interpolación de Lagrange es un método para encontrar un polinomio que pase a través de un conjunto de puntos dados.
+    Se basa en la idea de construir un polinomio de grado n-1 (donde n es el número de puntos conocidos) que pasa exactamente por todos los puntos dados.
+
+  Pasos:
+    - Paso 1: Obtener los puntos conocidos (x, y).
+    - Paso 2: Para cada punto conocido i:
+      - Paso 2.1: Calcular el término del polinomio de Lagrange correspondiente a ese punto.
+        - Paso 2.1.1: Inicializar el término como el valor de y en el punto i.
+        - Paso 2.1.2: Para cada otro punto conocido j:
+          - Paso 2.1.2.1: Si j ≠ i, multiplicar el término por (xInterpolar - x[j]) / (x[i] - x[j]).
+      - Paso 2.2: Sumar el término al resultado final.
+    - Paso 3: Devolver el resultado final, que es la interpolación de Lagrange para el valor xInterpolar.
+
+  Ejemplo:
+    Puntos conocidos:
+      - (1, 2)
+      - (2, 3)
+      - (3, 4)
+    Valor para interpolar: 2.5
+
+  Resultado: |
+    El resultado de la interpolación de Lagrange para x = 2.5 es el valor calculado utilizando el polinomio de Lagrange construido a partir de los puntos conocidos.
+-------------------------------------------------------------------------------------------------------------
+
+--------------------------IMPLEMENTACIÓN EN JAVA----------------------------------------
