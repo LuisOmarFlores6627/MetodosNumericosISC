@@ -52,7 +52,7 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
       - [Ejemplo Interpolción Lagrange](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/lagrange)
  
 ## Tema 6
-
+- [Solución de ecuaciones diferenciales](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/Soluci%C3%B3n%20de%20ecuaciones%20diferenciales) 
 1. [Métodos de un paso](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/M%C3%A9todos%20de%20un%20paso) 
 
 
