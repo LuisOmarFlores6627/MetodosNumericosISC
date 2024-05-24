@@ -1,1 +1,47 @@
+----------Solución de ecuaciones diferenciales Método de un paso-------------
+Los métodos numéricos de un paso son técnicas utilizadas para aproximar la solución de ecuaciones diferenciales
+ordinarias (EDO). Estos métodos son especialmente útiles cuando la solución analítica de una EDO es difícil o imposible
+de obtener.
+ Aquí, se presentarán algunos de los métodos de un paso más comunes:
+-Método de Euler:
+El método de Euler es el más sencillo y básico de los métodos de un paso. Se basa en la idea de aproximar la curva
+de solución mediante segmentos de recta.
+-Método de Euler Mejorado (o método del punto medio):
+También conocido como método de Euler modificado o método de Heun, mejora la precisión utilizando una estimación del valor 
+medio de la pendiente en el intervalo.
+-Método de Runge-Kutta de 2º orden (RK2):
+Este método utiliza una combinación de pendientes para mejorar la precisión en la aproximación.
+-Método de Runge-Kutta de 4º orden (RK4):
+Este es uno de los métodos más populares debido a su buena precisión y estabilidad.
+----------------------------------------------------------------------------------------
+
+-----------------------Algoritmo----------------------------
+metodo_euler:
+  descripcion: "Método de Euler para la resolución numérica de ecuaciones diferenciales ordinarias (EDO)."
+  pasos:
+    - paso: 1
+      descripcion: "Definir la función f(t, y) que representa la EDO dy/dt = f(t, y)."
+      ejemplo: "f(t, y) = -2 * y"
+    - paso: 2
+      descripcion: "Inicializar los valores de t y y con las condiciones iniciales."
+      ejemplo:
+        t0: 0
+        y0: 1
+    - paso: 3
+      descripcion: "Establecer el tamaño del paso h y el número máximo de pasos n_steps."
+      ejemplo:
+        h: 0.1
+        t_max: 1
+        n_steps: "n_steps = int(t_max / h)"
+    - paso: 4
+      descripcion: "Inicializar los arreglos para almacenar los valores de t y y."
+      ejemplo:
+        t_array: "t = np.linspace(t0, t_max, n_steps + 1)"
+        y_array: "y = np.zeros(n_steps + 1)"
+        y_initial: "y[0] = y0"
+    - paso: 5
+      descripcion: "Iterar desde 0 hasta n_steps, actualizando los valores de y utilizando el método de Euler."
+--------------------------------------------------------------------------------------------------------------------
+
+-------------------------IMPLEMENTACIÓN EN JAVA---------------------------------
 
