@@ -1,1 +1,15 @@
+Una ecuación diferencial es una ecuación matemática que relaciona una función con sus derivadas. Las ecuaciones 
+diferenciales son fundamentales en diversas áreas de la ciencia y la ingeniería porque describen cómo cambian las
+cantidades con el tiempo o con respecto a otras variables.
 
+Solución de Ecuaciones Diferenciales
+La solución de una ecuación diferencial puede ser explícita o implícita, y a menudo requiere métodos analíticos o numéricos.
+Métodos Analíticos:
+-Ecuaciones separables
+-Factores integrantes: Usados para ecuaciones lineales de primer orden.
+-Transformada de Laplace: Para resolver ecuaciones lineales con condiciones iniciales.
+-Series de potencias: Para ecuaciones donde la solución puede expresarse como una serie.
+
+Métodos Numéricos:
+Método de Euler: Aproximación simple y directa.
+Métodos de Runge-Kutta: Más precisos y usados ampliamente en aplicaciones prácticas.
