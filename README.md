@@ -53,4 +53,6 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
  
 ## Tema 6
 
+1. [Métodos de un paso](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/M%C3%A9todos%20de%20un%20paso) 
+
 
