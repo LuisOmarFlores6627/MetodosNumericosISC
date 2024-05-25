@@ -44,4 +44,86 @@ metodo_euler:
 --------------------------------------------------------------------------------------------------------------------
 
 -------------------------IMPLEMENTACIÓN EN JAVA---------------------------------
+package metodoeuler;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
+public class MetodoEuler {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Método de Euler para resolver ecuaciones diferenciales");
+        System.out.print("Introduce la función f(x, y) que define la derivada y' = f(x, y): ");
+        String funcion = scanner.nextLine();
+
+        System.out.print("Introduce el valor inicial de x (x0): ");
+        double x0 = scanner.nextDouble();
+
+        System.out.print("Introduce el valor inicial de y (y0): ");
+        double y0 = scanner.nextDouble();
+
+        System.out.print("Introduce el tamaño del paso (h): ");
+        double h = scanner.nextDouble();
+
+        System.out.print("Introduce el número de pasos (n): ");
+        int n = scanner.nextInt();
+
+        List<double[]> resultados = metodoEuler(funcion, x0, y0, h, n);
+
+        System.out.println("\nResultados:");
+        for (double[] par : resultados) {
+            System.out.printf("x: %.4f, y: %.4f%n", par[0], par[1]);
+        }
+
+        scanner.close();
+    }
+
+    public static List<double[]> metodoEuler(String funcion, double x0, double y0, double h, int n) {
+        List<double[]> resultados = new ArrayList<>();
+        double x = x0;
+        double y = y0;
+        resultados.add(new double[]{x, y});
+
+        for (int i = 0; i < n; i++) {
+            y += h * evaluarFuncion(funcion, x, y);
+            x += h;
+            resultados.add(new double[]{x, y});
+        }
+
+        return resultados;
+    }
+
+    public static double evaluarFuncion(String funcion, double x, double y) {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("JavaScript");
+        funcion = funcion.replace("x", Double.toString(x)).replace("y", Double.toString(y));
+        try {
+            return (double) engine.eval(funcion);
+        } catch (ScriptException e) {
+            System.out.println("Error al evaluar la función: " + e.getMessage());
+            return 0;
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------
+
+-----------------------Salida de pantalla--------------------------
+Método de Euler para resolver ecuaciones diferenciales
+Introduce la función f(x, y) que define la derivada y' = f(x, y): 2x-2
+Introduce el valor inicial de x (x0): 5
+Introduce el valor inicial de y (y0): 3
+Introduce el tamaño del paso (h): 2
+Introduce el número de pasos (n): 1
+
+Resultados:
+x: 5.0000, y: 3.0000
+x: 7.0000, y: 49.0000
+------------------------------------------------------------------------
+
 
