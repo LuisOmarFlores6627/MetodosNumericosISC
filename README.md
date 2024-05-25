@@ -56,5 +56,6 @@ En este repositorio se encuentra información acerca de lo mas relevante de meto
 1. [Métodos de un paso](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/M%C3%A9todos%20de%20un%20paso) 
       - [Ejemplo Métodos de un paso](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/EjerciciosEuler)
 2. [Método de pasos múltiples](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/blob/main/M%C3%A9todo%20de%20pasos%20m%C3%BAltiples) 
+      - [EjemploMétodo de pasos múltiples](https://github.com/LuisOmarFlores6627/MetodosNumericosISC/tree/master/Adam)
 
 
