@@ -1,1 +1,124 @@
+------------------------Método de pasos múltiples--------------------------------------
+El método de pasos múltiples es una técnica utilizada para resolver ecuaciones diferenciales ordinarias (EDOs). A 
+diferencia de los métodos de un solo paso, como el método de Euler o el método de Runge-Kutta, los métodos de pasos múltiples 
+utilizan varios puntos previos en la malla de solución para calcular la solución en el siguiente paso.
+Los métodos de pasos múltiples se dividen en dos categorías principales:
+Métodos explícitos: donde la solución en el siguiente paso se calcula directamente a partir de las soluciones previas.
+Métodos implícitos: donde la solución en el siguiente paso implica resolver una ecuación que incluye la solución desconocida.
+Un ejemplo clásico de métodos de pasos múltiples son los métodos de Adams-Bashforth (explícitos) y Adams-Moulton (implícitos).
+---------------------------------------------------------------------------------------------
+
+------------Algoritmo Adams-Bashforth (Explícito)----------------------
+algoritmo:
+  nombre: Adams-Bashforth
+  orden: 4
+  tipo: explícito
+  descripción: >
+    Método de pasos múltiples explícito de Adams-Bashforth de 4to orden para la solución
+    de ecuaciones diferenciales ordinarias.
+
+parámetros:
+  condiciones_iniciales:
+    t0: 0.0          # Tiempo inicial
+    y0: 1.0          # Valor inicial de la solución
+  tamaño_paso: 0.1   # Tamaño del paso (h)
+  pasos: 50          # Número de pasos a realizar
+
+ecuación:
+  función: f         # Nombre de la función que define la EDO
+  definición: "t - y" # Definición de la EDO en términos de t y y
+------------------------------------------------------------------------
+
+------------------IMPLEMENTACION EN JAVA-----------------------
+import java.util.Scanner;
+
+public class AdamsBashforth {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar valores al usuario
+        System.out.print("Ingrese t0, y0, h y n: ");
+        double t0 = scanner.nextDouble();
+        double y0 = scanner.nextDouble();
+        double h = scanner.nextDouble();
+        int n = scanner.nextInt();
+
+        // Inicializar arrays para almacenar los valores de tiempo y solución
+        double[] t = new double[n + 1];
+        double[] y = new double[n + 1];
+
+        // Calcular los primeros valores de t y y usando RK4
+        for (int i = 0; i < 4; i++) {
+            t[i] = t0 + i * h;
+            y[i] = rk4(t[i], y0, h);
+        }
+
+        // Aplicar el método de Adams-Bashforth para los pasos restantes
+        for (int i = 3; i < n; i++) {
+            t[i + 1] = t[i] + h;
+            y[i + 1] = adamsBashforth(t[i], y[i], h);
+        }
+
+        // Imprimir los resultados
+        System.out.println("Resultados:");
+        for (int i = 0; i <= n; i++) {
+            System.out.printf("t = %.4f, y = %.4f%n", t[i], y[i]);
+        }
+
+        scanner.close();
+    }
+
+    // Definir la EDO
+    public static double f(double t, double y) {
+        return t - y;
+    }
+
+    // Implementar el método RK4
+    public static double rk4(double t, double y, double h) {
+        double k1 = h * f(t, y);
+        double k2 = h * f(t + h / 2, y + k1 / 2);
+        double k3 = h * f(t + h / 2, y + k2 / 2);
+        double k4 = h * f(t + h, y + k3);
+        return y + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+    }
+
+    // Implementar el método de Adams-Bashforth
+    public static double adamsBashforth(double t, double y, double h) {
+        // Calcular utilizando la fórmula de Adams-Bashforth
+        return y + h / 24 * (55 * f(t, y) - 59 * f(t - h, y) + 37 * f(t - 2 * h, y) - 9 * f(t - 3 * h, y));
+    }
+}
+---------------------------------------------------------------------------------------------------
+
+-------------------Salida en pantalla-----------------------------
+Ingrese t0, y0, h y n: 4 
+3
+1
+22
+Resultados:
+t = 4.0000, y = 4.0000
+t = 5.0000, y = 4.6250
+t = 6.0000, y = 5.2500
+t = 7.0000, y = 5.8750
+t = 8.0000, y = 7.5000
+t = 9.0000, y = 8.5000
+t = 10.0000, y = 9.5000
+t = 11.0000, y = 10.5000
+t = 12.0000, y = 11.5000
+t = 13.0000, y = 12.5000
+t = 14.0000, y = 13.5000
+t = 15.0000, y = 14.5000
+t = 16.0000, y = 15.5000
+t = 17.0000, y = 16.5000
+t = 18.0000, y = 17.5000
+t = 19.0000, y = 18.5000
+t = 20.0000, y = 19.5000
+t = 21.0000, y = 20.5000
+t = 22.0000, y = 21.5000
+t = 23.0000, y = 22.5000
+t = 24.0000, y = 23.5000
+t = 25.0000, y = 24.5000
+t = 26.0000, y = 25.5000
+------------------------------------------------
+
 
