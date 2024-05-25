@@ -1,0 +1,112 @@
+---Método de Gauss-Seidel:
+En el método de Gauss-Seidel se propone ir sustituyendo los nuevos valores de la aproximación siguiente conforme 
+se vayan obteniendo sin esperar a tener un vector completo. De esta forma se acelera la convergencia.
+
+-----Algoritmo------//Método de Gauss-Seidel
+Algoritmo_de_Gauss_Seidel:
+  Descripción: >
+    Método iterativo para resolver sistemas de ecuaciones lineales aproximadamente.
+    Se basa en la actualización sucesiva de las incógnitas en cada iteración.
+  Pasos:
+    - Paso_1: >
+        Inicializar un vector x^(0) con valores iniciales arbitrarios o calculados.
+    - Paso_2: >
+        Para cada i-ésima ecuación del sistema, calcular x_i^(k+1) usando la fórmula:
+        x_i^(k+1) = (1/a_{ii}) * (b_i - ∑_{j=1, j ≠ i}^{n} a_{ij} * x_j^(k))
+    - Paso_3: >
+        Repetir el Paso 2 hasta que la diferencia entre dos iteraciones sucesivas sea menor que una cierta tolerancia
+        predefinida o hasta alcanzar un número máximo de iteraciones.
+  Convergencia: >
+    La convergencia está garantizada si la matriz A es diagonalmente dominante o simétrica definida positiva.
+    La velocidad de convergencia puede variar dependiendo de la naturaleza del sistema.
+-------------------------------------------------------------------------------------------------------------
+
+---IMPLEMENTACIÓN EN JAVA-----
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Pedir el tamaño de la matriz
+        System.out.print("Ingrese el tamaño de la matriz cuadrada (n): ");
+        int n = scanner.nextInt();
+
+        // Inicializar la matriz A y el vector b
+        double[][] A = new double[n][n];
+        double[] b = new double[n];
+
+        // Pedir los elementos de la matriz A
+        System.out.println("Ingrese los elementos de la matriz A:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.printf("A[%d][%d]: ", i, j);
+                A[i][j] = scanner.nextDouble();
+            }
+        }
+
+        // Pedir los elementos del vector b
+        System.out.println("Ingrese los elementos del vector b:");
+        for (int i = 0; i < n; i++) {
+            System.out.printf("b[%d]: ", i);
+            b[i] = scanner.nextDouble();
+        }
+
+        // Resolver el sistema de ecuaciones utilizando Gauss-Seidel
+        double[] x = gaussSeidel(A, b);
+
+        // Mostrar el resultado
+        System.out.println("El resultado es:");
+        for (int i = 0; i < n; i++) {
+            System.out.printf("x[%d] = %.4f\n", i, x[i]);
+        }
+
+        scanner.close();
+    }
+
+    public static double[] gaussSeidel(double[][] A, double[] b) {
+        int n = b.length;
+        double[] x = new double[n];
+        double[] xPrev = new double[n];
+
+        // Inicializar x con valores arbitrarios o cero
+        for (int i = 0; i < n; i++) {
+            x[i] = 0; // Se pueden utilizar otros valores iniciales también
+        }
+
+        // Iterar hasta que la diferencia entre las soluciones sea muy pequeña
+        while (true) {
+            // Copiar los valores de la iteración anterior
+            System.arraycopy(x, 0, xPrev, 0, n);
+
+            // Calcular la nueva aproximación para cada variable
+            for (int i = 0; i < n; i++) {
+                double sum = 0;
+                for (int j = 0; j < n; j++) {
+                    if (j != i) {
+                        sum += A[i][j] * x[j];
+                    }
+                }
+                x[i] = (b[i] - sum) / A[i][i];
+            }
+
+            // Verificar si la diferencia entre las soluciones es muy pequeña
+            double maxDiff = 0;
+            for (int i = 0; i < n; i++) {
+                double diff = Math.abs(x[i] - xPrev[i]);
+                if (diff > maxDiff) {
+                    maxDiff = diff;
+                }
+            }
+            if (maxDiff < 0.0001) { // Cambiar este valor según la precisión deseada
+                break;
+            }
+        }
+
+        return x;
+    }
+}
+--------------------------------------------------------------------------------------------------------------
+
+
+
