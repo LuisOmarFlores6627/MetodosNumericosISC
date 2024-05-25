@@ -1,0 +1,208 @@
+---------Metodo Simpson-------------
+--Método de Simpson 1/3:
+En el método de Simpson 1/3, la integral definida se aproxima mediante una parábola que pasa a través de tres puntos 
+equidistantes. Estos puntos se obtienen dividiendo el intervalo de integración en subintervalos de igual longitud y aplicando
+una fórmula que utiliza los valores de la función en los extremos y en el punto medio de cada subintervalo.
+--Método de Simpson 3/8:
+En el método de Simpson 3/8, la integral definida se aproxima mediante una interpolación polinómica de tercer grado que pasa a
+través de cuatro puntos igualmente espaciados. Se usa cuando el número de subintervalos es múltiplo de tres (para garantizar que 
+se puedan aplicar las cuatro evaluaciones necesarias).
+---------------------------------------------------------------------------------------------------------------------------------
+
+------Algoritmos-------
+---metodo_simpson_1_3:
+  descripcion: Método de Simpson 1/3 para aproximar una integral definida.
+  entrada:
+    - a: Límite inferior de integración
+    - b: Límite superior de integración
+    - n: Número de subintervalos (debe ser un múltiplo de 2)
+    - f: Función a integrar
+  salida:
+    - valor_aproximado: Valor aproximado de la integral definida
+  algoritmo: |
+    h = (b - a) / n
+    suma = f(a) + f(b)
+    suma_impares = 0
+    suma_pares = 0
+
+    for i in range(1, n):
+      xi = a + i * h
+      if i % 2 == 0:
+        suma_pares += f(xi)
+      else:
+        suma_impares += f(xi)
+
+    valor_aproximado = (h / 3) * (suma + 4 * suma_impares + 2 * suma_pares)
+    return valor_aproximado
+
+---metodo_simpson_3_8:
+  descripcion: Método de Simpson 3/8 para aproximar una integral definida.
+  entrada:
+    - a: Límite inferior de integración
+    - b: Límite superior de integración
+    - n: Número de subintervalos (debe ser un múltiplo de 3)
+    - f: Función a integrar
+  salida:
+    - valor_aproximado: Valor aproximado de la integral definida
+  algoritmo: |
+    h = (b - a) / n
+    suma = f(a) + f(b)
+    suma_1_3 = 0
+    suma_2_3 = 0
+
+    for i in range(1, n):
+      xi = a + i * h
+      if i % 3 == 0:
+        suma += 2 * f(xi)
+      elif i % 3 == 1:
+        suma_1_3 += f(xi)
+      else:
+        suma_2_3 += f(xi)
+
+    valor_aproximado = (3 * h / 8) * (suma + 3 * suma_1_3 + 3 * suma_2_3 + f(b))
+    return valor_aproximado
+-------------------------------------------------------------------------------------------
+
+----------------IMPLEMENTACIÓN EN JAVA----------------
+-------Simpson 1/8--------------
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+import java.util.Scanner;
+
+public class Simpson18 {
+    // Evalúa la función dada como una cadena de texto en el punto x
+    public static double f(String expr, double x) throws ScriptException {
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
+        return (Double) engine.eval(expr.replace("sin", "Math.sin")
+                                          .replace("cos", "Math.cos")
+                                          .replace("tan", "Math.tan")
+                                          .replace("x", String.valueOf(x)));
+    }
+
+    // Aproxima la integral de la función dada usando la regla de Simpson 1/8
+    public static double simpsons18(String expr, double a, double b, int n) {
+        double h = (b - a) / n;
+        double sum = 0;
+
+        try {
+            sum = f(expr, a) + f(expr, b);
+
+            for (int i = 1; i < n; i++) {
+                if (i % 4 == 0) {
+                    sum += 2 * f(expr, a + i * h);
+                } else {
+                    sum += 4 * f(expr, a + i * h);
+                }
+            }
+        } catch (ScriptException e) {
+            System.err.println("Error evaluando la función: " + e.getMessage());
+        }
+
+        return (h / 3) * sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese la función a integrar (por ejemplo, 'Math.sin(x)' para seno): ");
+        String expr = scanner.nextLine();
+
+        System.out.print("Ingrese el límite inferior de integración: ");
+        double a = scanner.nextDouble();
+
+        System.out.print("Ingrese el límite superior de integración: ");
+        double b = scanner.nextDouble();
+
+        System.out.print("Ingrese el número de intervalos: ");
+        int n = scanner.nextInt();
+
+        double result = simpsons18(expr, a, b, n);
+        System.out.printf("Valor aproximado de la integral: %.4f%n", result);
+    }
+}
+---------------------------------------------------------------------------------------------------------
+----------Salida en consola 1/8----------
+Ingrese la función a integrar (por ejemplo, 'Math.sin(x)' para seno): sin(x)
+Ingrese el límite inferior de integración: 0
+Ingrese el límite superior de integración: 3.141592653589793
+Ingrese el número de intervalos: 100
+Valor aproximado de la integral: 2.3336
+----------------------------------------
+
+
+------------------------Simpson  3/8----------------------------------
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+import java.util.Scanner;
+
+public class Simpson38 {
+    // Evalúa la función dada como una cadena de texto en el punto x
+    public static double f(String expr, double x) throws ScriptException {
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
+        return (Double) engine.eval(expr.replace("sin", "Math.sin")
+                                          .replace("cos", "Math.cos")
+                                          .replace("tan", "Math.tan")
+                                          .replace("x", String.valueOf(x)));
+    }
+
+    // Aproxima la integral de la función dada usando la regla de Simpson 3/8
+    public static double simpsons38(String expr, double a, double b, int n) {
+        try {
+            double h = (b - a) / n;
+            double sum = f(expr, a) + f(expr, b);
+
+            for (int i = 1; i < n; i++) {
+                if (i % 3 == 0) {
+                    sum += 2 * f(expr, a + i * h);
+                } else {
+                    sum += 3 * f(expr, a + i * h);
+                }
+            }
+
+            return (3 * h / 8) * sum;
+        } catch (ScriptException e) {
+            System.err.println("Error evaluando la función: " + e.getMessage());
+            return Double.NaN; // Otra acción apropiada en caso de error
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese la función a integrar (por ejemplo, 'Math.log(x)' para logaritmo natural): ");
+        String expr = scanner.nextLine();
+
+        System.out.print("Ingrese el límite inferior de integración: ");
+        double a = scanner.nextDouble();
+
+        System.out.print("Ingrese el límite superior de integración: ");
+        double b = scanner.nextDouble();
+
+        System.out.print("Ingrese el número de intervalos: ");
+        int n = scanner.nextInt();
+
+        double result = simpsons38(expr, a, b, n);
+        if (!Double.isNaN(result)) {
+            System.out.printf("Valor aproximado de la integral: %.4f%n", result);
+        }
+    }
+}
+------------------------------------------------------------------------------------------
+
+-----------Salida en pantalla 3/8---------------
+Ingrese la función a integrar (por ejemplo, 'Math.log(x)' para logaritmo natural): sin(x)
+Ingrese el límite inferior de integración: 0
+Ingrese el límite superior de integración: 3.141592653589793
+Ingrese el número de intervalos: 100
+Valor aproximado de la integral: 1.9999
+------------------------------------------------------
+
+
+
+
+
+
+
+
