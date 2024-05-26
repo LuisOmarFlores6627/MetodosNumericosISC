@@ -1,0 +1,117 @@
+---Método de bisección:
+El método de bisección es un algoritmo utilizado para encontrar las raíces de una función continua en un intervalo dado. 
+Este método es simple pero efectivo y se basa en el teorema del valor intermedio.El método de bisección garantiza la convergencia
+a una raíz debido a la propiedad de que en cada iteración se reduce a la mitad la longitud del intervalo que contiene la raíz. Sin 
+embargo, puede ser relativamente lento en comparación con otros métodos de búsqueda de raíces, especialmente para funciones con 
+comportamientos complicados. 
+
+----Algoritmo-----
+Método_de_Bisección:
+  Descripción: |
+    El Método de Bisección es un algoritmo para encontrar la raíz de una función continua en un intervalo dado. 
+    Se basa en el Teorema del Valor Intermedio, dividiendo repetidamente el intervalo a la mitad y seleccionando 
+    el subintervalo que sigue cumpliendo con el teorema.
+  
+  Parámetros:
+    - Función: "La función f(x) para la cual se quiere encontrar la raíz."
+    - Intervalo: "El intervalo [a, b] donde se buscará la raíz, donde f(a) y f(b) tienen signos opuestos."
+    - Tolerancia: "La precisión deseada para la raíz."
+    - Iteraciones_máximas: "El número máximo de iteraciones permitidas para evitar bucles infinitos."
+
+  Paso_a_Paso:
+    - Inicializar a = extremo inferior del intervalo, b = extremo superior del intervalo.
+    - Para cada iteración:
+        - Calcular el punto medio c = (a + b) / 2.
+        - Evaluar f(c).
+        - Si f(c) es cercano a 0 (dentro de la tolerancia), c es la raíz y se termina el algoritmo.
+        - Si f(c) y f(a) tienen signos opuestos, establecer b = c.
+        - Si f(c) y f(b) tienen signos opuestos, establecer a = c.
+        - Repetir hasta que se cumpla la condición de convergencia o se alcance el número máximo de iteraciones.
+
+  Resultado:
+    - Raíz: "El valor de c cuando se alcanza la precisión deseada."
+    - Iteraciones: "El número de iteraciones realizadas hasta encontrar la raíz."
+-----------------------------------------------------------------------------------------------------------------------------------
+
+---IMPLEMENTACIÓN EN JAVA-----
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+import java.util.Scanner;
+import java.util.function.Function;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // Crear un objeto Scanner para leer la entrada del usuario
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese la función como una expresión válida de Java:");
+        System.out.println("Por ejemplo, para x^2 - 4, ingrese 'x * x - 4'");
+        String functionString = scanner.nextLine();
+
+        // Definir la función a partir de la cadena ingresada por el usuario
+        Function<Double, Double> function = buildFunction(functionString);
+
+        System.out.println("Ingrese el límite inferior del intervalo:");
+        double a = scanner.nextDouble();
+
+        System.out.println("Ingrese el límite superior del intervalo:");
+        double b = scanner.nextDouble();
+
+        System.out.println("Ingrese la precisión deseada (epsilon):");
+        double epsilon = scanner.nextDouble();
+
+        // Calcular la raíz utilizando el método de bisección
+        double root = bisection(function, a, b, epsilon);
+
+        // Imprimir el resultado
+        System.out.println("La raíz aproximada es: " + root);
+
+        // Cerrar el scanner para evitar fugas de recursos
+        scanner.close();
+    }
+
+    public static Function<Double, Double> buildFunction(String functionString) {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("js");
+
+        return x -> {
+            try {
+                engine.put("x", x);
+                return Double.parseDouble(engine.eval(functionString).toString());
+            } catch (ScriptException e) {
+                throw new IllegalArgumentException("La función ingresada no es válida.");
+            }
+        };
+    }
+
+    public static double bisection(Function<Double, Double> function, double a, double b, double epsilon) {
+        // Verificar si los límites del intervalo encierran una raíz
+        if (function.apply(a) * function.apply(b) > 0) {
+            throw new IllegalArgumentException("La función no cambia de signo en el intervalo dado.");
+        }
+
+        // Implementación del método de bisección
+        while ((b - a) >= epsilon) {
+            // Encontrar el punto medio del intervalo
+            double c = (a + b) / 2;
+            // Calcular el valor de la función en el punto medio
+            double fc = function.apply(c);
+            // Si el valor de la función en el punto medio es cercano a cero, hemos encontrado una buena aproximación
+            if (Math.abs(fc) < epsilon) {
+                return c; // Devolver la raíz aproximada
+            }
+            // Actualizar los límites del intervalo [a, b] según el cambio de signo
+            if (fc * function.apply(a) < 0) {
+                b = c; // Si hay cambio de signo entre a y c, actualizar b
+            } else {
+                a = c; // Si hay cambio de signo entre b y c, actualizar a
+            }
+        }
+        // Devolver el punto medio del intervalo como la mejor aproximación encontrada
+        return (a + b) / 2;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------
